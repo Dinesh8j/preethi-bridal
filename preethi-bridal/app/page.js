@@ -3,7 +3,7 @@ import { getWorks, getTestimonials, getSite } from '../lib/store';
 import Gallery from './Gallery';
 export const dynamic = 'force-dynamic';
 export default async function Home() {
-  const [works, reviews, img] = await Promise.all([getWorks(), getTestimonials(), getSite()]);
+  const [works, reviews, img] = await Promise.all([getWorks().catch(() => []), getTestimonials().catch(() => []), getSite().catch(() => ({ hero: null, about: null }))]);
   const wa = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent('Hi Preethi, I would like to book bridal makeup.')}`;
   const ig = `https://instagram.com/${site.instagram}`;
   return (<>
@@ -30,7 +30,7 @@ export default async function Home() {
       <p className="c"><a className="btn ghost dk" href={ig} target="_blank">See more on Instagram</a></p></section>
 
     <section id="reviews" className="dark-sec"><div className="wrap"><span className="eyebrow c">Kind words</span><h2 className="c">Happy Brides</h2>
-      {reviews.length ? <div className="grid">{reviews.map(r => <div className="review" key={r.url}><p>“{r.text}”</p><b>{r.name}</b></div>)}</div> : <p className="c">Reviews coming soon.</p>}</div></section>
+      {reviews.length ? <div className="grid">{reviews.map(r => <div className="review" key={r.id}><p>“{r.text}”</p><b>{r.name}</b></div>)}</div> : <p className="c">Reviews coming soon.</p>}</div></section>
 
     <footer><h2>Book your date</h2><p>{site.location}</p>
       <a className="btn" href={wa} target="_blank">WhatsApp</a><a className="btn ghost dk" href={ig} target="_blank">@{site.instagram}</a>
