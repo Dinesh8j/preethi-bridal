@@ -1,55 +1,44 @@
-:root{--wine:#4a1f2b;--rose:#a8566a;--gold:#b8925a;--ivory:#faf6f1;--tint:#f3e9e2;--ink:#2a1e21}
-*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}
-body{font-family:var(--sans),sans-serif;font-weight:300;color:var(--ink);background:var(--ivory);line-height:1.8}
-h1,h2,h3{font-family:var(--serif),serif;font-weight:500;line-height:1.15}
-h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:24px;color:var(--wine)}
-a{color:inherit;text-decoration:none}
-.c{text-align:center}
-.eyebrow{display:block;text-transform:uppercase;letter-spacing:.3em;font-size:.72rem;color:var(--gold);margin-bottom:14px}
-.eyebrow.dark{color:var(--rose)}.eyebrow.c{text-align:center}
-nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:16px 5vw;color:#fff;background:linear-gradient(#2a1218aa,transparent)}
-.logo{font-family:var(--serif),serif;font-size:1.6rem;font-style:italic}
-nav div a{margin-left:26px;font-size:.85rem;letter-spacing:.08em}
-.pill{border:1px solid #fff;padding:8px 20px;border-radius:40px}
-.hero{min-height:100vh;display:flex;align-items:center;padding:0 7vw;color:#fff;background:linear-gradient(135deg,#4a1f2b,#a8566a 60%,#b8925a) center/cover}
-.hero-in{max-width:620px}
-.hero h1{font-size:clamp(3rem,9vw,6.5rem);font-style:italic;margin-bottom:10px}
-.hero p{font-size:1.1rem;margin-bottom:32px;letter-spacing:.05em}
-.btn{display:inline-block;padding:13px 32px;background:var(--gold);color:#fff;margin:6px 10px 6px 0;letter-spacing:.12em;font-size:.8rem;text-transform:uppercase;border:1px solid var(--gold);transition:.3s}
-.btn:hover{background:transparent}.btn.ghost{background:transparent;border-color:#fff}.btn.ghost:hover{background:#fff;color:var(--wine)}
-.btn.dk{color:var(--wine);border-color:var(--wine)}.btn.dk:hover{background:var(--wine);color:#fff}
-section{padding:100px 6vw}.wrap{max-width:1150px;margin:auto}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:70px;max-width:1150px;margin:auto;align-items:center}
-.frame{position:relative;aspect-ratio:4/5}.frame::after{content:'';position:absolute;inset:16px -16px -16px 16px;border:1px solid var(--gold);z-index:-1}
-.frame img,.ph{width:100%;height:100%;object-fit:cover;display:block}
-.ph{display:grid;place-content:center;background:var(--tint);font:italic 3rem var(--serif);color:var(--rose)}
-.tint{background:var(--tint)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin-top:40px}
-.card{background:#fff;padding:40px 30px;text-align:center;transition:.3s}.card:hover{transform:translateY(-6px);box-shadow:0 14px 34px #4a1f2b18}
-.card small{color:var(--gold);letter-spacing:.2em}.card h3{font-size:1.6rem;margin:8px 0;color:var(--wine)}
-.gallery{columns:3 260px;column-gap:16px;margin:40px 0}
-.gallery img{width:100%;margin-bottom:16px;display:block;cursor:zoom-in;transition:.4s}.gallery img:hover{filter:brightness(.85)}
-.lightbox{position:fixed;inset:0;background:#000d;z-index:50;display:grid;place-items:center;cursor:zoom-out}.lightbox img{max-width:92vw;max-height:92vh}
-.dark-sec{background:var(--wine);color:#f5e9e4}.dark-sec h2{color:#fff}
-.review{border:1px solid #ffffff30;padding:34px 28px;font-family:var(--serif),serif;font-size:1.25rem;font-style:italic}
-.review b{display:block;margin-top:16px;font:400 .8rem var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-style:normal}
-footer{text-align:center;padding:80px 6vw 40px}footer small{display:block;margin-top:50px;opacity:.6}
-.wa{position:fixed;right:18px;bottom:18px;z-index:20;background:#25d366;color:#fff;padding:13px 22px;border-radius:40px;box-shadow:0 6px 18px #0003;font-weight:400}
-@media(max-width:800px){.split{grid-template-columns:1fr;gap:50px}nav div a:not(.pill){display:none}section{padding:70px 6vw}}
-.admin{max-width:800px;margin:auto;padding:30px 5vw}
-.admin input,.admin textarea{width:100%;padding:10px;margin:6px 0;border:1px solid #ddd;font:inherit}
-.admin .row{display:flex;gap:10px;align-items:center;justify-content:space-between;background:#fff;padding:10px;margin:8px 0}
-.admin img{width:90px;height:90px;object-fit:cover}
-footer .credit{margin-top:14px;font-size:.8rem;opacity:.75}footer .credit a{color:var(--rose);text-decoration:underline;text-underline-offset:3px}
-.gallery figure{margin:0 0 16px;position:relative;break-inside:avoid;cursor:zoom-in;overflow:hidden}
-.gallery figure img{margin:0}
-.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 14px 12px;color:#fff;background:linear-gradient(transparent,#2a1218d0);font:italic 1.2rem var(--serif),serif;opacity:0;transition:.3s}
-.gallery figure:hover figcaption{opacity:1}
-.lightbox figure{margin:0;text-align:center;color:#fff}.lightbox img{max-height:80vh}
-.lightbox figcaption{padding-top:12px}.lightbox figcaption b{display:block;font:italic 1.5rem var(--serif),serif}.lightbox figcaption span{display:block;opacity:.8;max-width:600px;margin:auto}
-.admin h1{margin-bottom:6px}.admin h2{margin:30px 0 8px;font-size:1.6rem}
-.admin .box{background:#fff;padding:14px;margin:10px 0}.admin .row p{font-size:.9rem;opacity:.8}
-.admin .row .btn{margin:0 0 0 6px;padding:8px 16px}.admin .box .btn{margin:6px 6px 0 0;padding:8px 18px}
-.admin .thumb{width:90px;height:90px;background:#eee}.admin .err{color:#b00020}.admin .ok{color:#2e7d32}
-.logo{font-family:var(--serif),serif;font-size:1.2rem;font-weight:600;font-style:normal;letter-spacing:.14em;text-transform:uppercase}nav div a:first-child{margin-left:0}
-nav{color:var(--wine);background:#faf6f1f2;backdrop-filter:blur(8px);box-shadow:0 1px 14px #4a1f2b14}nav div a:first-child{margin-left:26px}.pill{border-color:var(--wine)}.logo{font-weight:600;color:var(--wine);font-size:1.15rem}@media(max-width:800px){.logo{font-size:.95rem;letter-spacing:.08em}}
+import { site } from '../lib/config';
+import { getWorks, getTestimonials, getSite, getSettings } from '../lib/store';
+import Gallery from './Gallery';
+export const dynamic = 'force-dynamic';
+export default async function Home() {
+  const [works, reviews, img, cfg] = await Promise.all([getWorks().catch(() => []), getTestimonials().catch(() => []), getSite().catch(() => ({ hero: null, about: null })), getSettings().catch(() => ({}))])
+  const BRAND = 'PREETHI BRIDAL MAKEOVER';
+  const number = cfg.whatsapp || site.whatsapp;
+  const handle = cfg.instagram || site.instagram;;
+  const wa = `https://wa.me/${number}?text=${encodeURIComponent('Hi Preethi, I would like to book bridal makeup.')}`;
+  const ig = `https://instagram.com/${handle}`;
+  return (<>
+    <nav><a className="logo" href="#top">{BRAND}</a>
+      <div><a href="#about">About</a><a href="#services">Services</a><a href="#works">Portfolio</a><a href="#reviews">Reviews</a><a className="pill" href={wa} target="_blank">Book Now</a></div></nav>
+
+    <header id="top" className="hero" style={img.hero ? { backgroundImage: `linear-gradient(90deg,#2a1218cc,#2a121855),url(${img.hero})` } : undefined}>
+      <div className="hero-in"><span className="eyebrow">Bridal Makeup Artist · {site.location}</span>
+        <h1>{site.name}</h1><p>{site.tagline}</p>
+        <a className="btn" href={wa} target="_blank">Book on WhatsApp</a><a className="btn ghost" href={ig} target="_blank">Instagram</a></div>
+    </header>
+
+    <section id="about" className="split">
+      <div className="frame">{img.about ? <img src={img.about} alt="Preethi, bridal makeup artist" /> : <div className="ph">Preethi</div>}</div>
+      <div><span className="eyebrow dark">About me</span><h2>Making every bride feel like herself, only more radiant</h2><p>{site.about}</p>
+        <a className="btn" href={wa} target="_blank">Let's talk</a></div>
+    </section>
+
+    <section id="services" className="tint"><div className="wrap"><span className="eyebrow dark c">What I do</span><h2 className="c">Services</h2>
+      <div className="grid">{site.services.map(([t, d], i) => <div className="card" key={t}><small>0{i + 1}</small><h3>{t}</h3><p>{d}</p></div>)}</div></div></section>
+
+    <section id="works" className="wrap"><span className="eyebrow dark c">Portfolio</span><h2 className="c">Recent Works</h2>
+      {works.length ? <Gallery works={works} /> : <p className="c">Photos coming soon.</p>}
+      <p className="c"><a className="btn ghost dk" href={ig} target="_blank">See more on Instagram</a></p></section>
+
+    <section id="reviews" className="dark-sec"><div className="wrap"><span className="eyebrow c">Kind words</span><h2 className="c">Happy Brides</h2>
+      {reviews.length ? <div className="grid">{reviews.map(r => <div className="review" key={r.id}><p>“{r.text}”</p><b>{r.name}</b></div>)}</div> : <p className="c">Reviews coming soon.</p>}</div></section>
+
+    <footer><h2>Book your date</h2><p>{site.location}</p>
+      <a className="btn" href={wa} target="_blank">WhatsApp</a><a className="btn ghost dk" href={ig} target="_blank">@{handle}</a>
+      <small>© {new Date().getFullYear()} {site.name}</small>
+      <small className="credit">Website created by <a href="https://jay-solutions.vercel.app/" target="_blank" rel="noopener"><b>JAY Solutions</b></a> — we help you grow your business. Contact us: <a href="tel:+916380783948">6380783948</a></small></footer>
+    <a className="wa" href={wa} target="_blank" aria-label="WhatsApp">WhatsApp</a>
+  </>);
+}
