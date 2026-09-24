@@ -1,6 +1,7 @@
 import { put, del } from '@vercel/blob';
 import { NextResponse } from 'next/server';
-import { getWorks, getTestimonials, getSite, saveJson, getJson, removeJson, setSite, removeSite } from '../../../lib/store';
+import { getWorks, getTestimonials, getSite, saveJson, getJson, removeJson, setSite, removeSite, getSettings, saveSettings } from '../../../lib/store';
+import { site } from '../../../lib/config';
 export const dynamic = 'force-dynamic';
 
 const authed = r => !!process.env.ADMIN_PASSWORD && r.headers.get('x-admin-password') === process.env.ADMIN_PASSWORD;
@@ -17,6 +18,7 @@ export async function GET(req) {
     if (t === 'auth') return authed(req) ? send({ ok: true }) : bad();
     if (t === 'testimonials') return send(await getTestimonials());
     if (t === 'site') return send(await getSite());
+    if (t === 'settings') { const s = await getSettings(); return send({ whatsapp: s.whatsapp || site.whatsapp, instagram: s.instagram || site.instagram }); }
     return send(await getWorks());
   } catch (e) { return send({ error: e.message }, 500); }
 }
@@ -25,7 +27,12 @@ export async function POST(req) {
   if (!authed(req)) return bad();
   try {
     const f = await req.formData(); const type = f.get('type');
-    if (type === 'hero' || type === 'about') await setSite(type, f.get('file'));
+    if (type === 'settings') {
+      await saveSettings({
+        whatsapp: clip(f.get('whatsapp'), 20).replace(/\D/g, ''),
+        instagram: clip(f.get('instagram'), 60).replace(/^.*instagram\.com\//i, '').replace(/[@/?].*$/, '').trim(),
+      });
+    } else if (type === 'hero' || type === 'about') await setSite(type, f.get('file'));
     else if (type === 'works') {
       const file = f.get('file'); if (!file) return send({ error: 'Photo required' }, 400);
       const id = uid(); const b = await upImage(file);
