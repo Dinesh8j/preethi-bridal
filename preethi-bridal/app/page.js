@@ -1,14 +1,18 @@
 import { site } from '../lib/config';
-import { getWorks, getTestimonials, getSite } from '../lib/store';
+import { getWorks, getTestimonials, getSite, getSettings } from '../lib/store';
 import Gallery from './Gallery';
 export const dynamic = 'force-dynamic';
 export default async function Home() {
-  const [works, reviews, img] = await Promise.all([getWorks().catch(() => []), getTestimonials().catch(() => []), getSite().catch(() => ({ hero: null, about: null }))]);
-  const wa = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent('Hi Preethi, I would like to book bridal makeup.')}`;
-  const ig = `https://instagram.com/${site.instagram}`;
+  const [works, reviews, img, cfg] = await Promise.all([getWorks().catch(() => []), getTestimonials().catch(() => []), getSite().catch(() => ({ hero: null, about: null })), getSettings().catch(() => ({}))])
+  const BRAND = 'PREETHI BRIDAL MAKEOVER';
+  const number = cfg.whatsapp || site.whatsapp;
+  const handle = cfg.instagram || site.instagram;;
+  const wa = `https://wa.me/${number}?text=${encodeURIComponent('Hi Preethi, I would like to book bridal makeup.')}`;
+  const ig = `https://instagram.com/${handle}`;
   return (<>
-    <nav><a className="logo" href="#top">{site.name}</a>
-      <div><a href="#about">About</a><a href="#services">Services</a><a href="#works">Portfolio</a><a href="#reviews">Reviews</a><a className="pill" href={wa} target="_blank">Book Now</a></div></nav>
+    <nav>
+      <div><a href="#about">About</a><a href="#services">Services</a><a href="#works">Portfolio</a><a href="#reviews">Reviews</a><a className="pill" href={wa} target="_blank">Book Now</a></div>
+      <a className="logo" href="#top">{BRAND}</a></nav>
 
     <header id="top" className="hero" style={img.hero ? { backgroundImage: `linear-gradient(90deg,#2a1218cc,#2a121855),url(${img.hero})` } : undefined}>
       <div className="hero-in"><span className="eyebrow">Bridal Makeup Artist · {site.location}</span>
@@ -33,7 +37,7 @@ export default async function Home() {
       {reviews.length ? <div className="grid">{reviews.map(r => <div className="review" key={r.id}><p>“{r.text}”</p><b>{r.name}</b></div>)}</div> : <p className="c">Reviews coming soon.</p>}</div></section>
 
     <footer><h2>Book your date</h2><p>{site.location}</p>
-      <a className="btn" href={wa} target="_blank">WhatsApp</a><a className="btn ghost dk" href={ig} target="_blank">@{site.instagram}</a>
+      <a className="btn" href={wa} target="_blank">WhatsApp</a><a className="btn ghost dk" href={ig} target="_blank">@{handle}</a>
       <small>© {new Date().getFullYear()} {site.name}</small>
       <small className="credit">Website created by <a href="https://jay-solutions.vercel.app/" target="_blank" rel="noopener"><b>JAY Solutions</b></a> — we help you grow your business. Contact us: <a href="tel:+916380783948">6380783948</a></small></footer>
     <a className="wa" href={wa} target="_blank" aria-label="WhatsApp">WhatsApp</a>
