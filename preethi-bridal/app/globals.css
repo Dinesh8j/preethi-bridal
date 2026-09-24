@@ -51,3 +51,4 @@ footer .credit{margin-top:14px;font-size:.8rem;opacity:.75}footer .credit a{colo
 .admin .box{background:#fff;padding:14px;margin:10px 0}.admin .row p{font-size:.9rem;opacity:.8}
 .admin .row .btn{margin:0 0 0 6px;padding:8px 16px}.admin .box .btn{margin:6px 6px 0 0;padding:8px 18px}
 .admin .thumb{width:90px;height:90px;background:#eee}.admin .err{color:#b00020}.admin .ok{color:#2e7d32}
+.logo{font-family:var(--serif),serif;font-size:1.2rem;font-weight:600;font-style:normal;letter-spacing:.14em;text-transform:uppercase}nav div a:first-child{margin-left:0}
