@@ -36,3 +36,6 @@ export async function setSite(kind, file) {
   await put(`site/${kind}-${Date.now()}.jpg`, file, { ...opts, contentType: 'image/jpeg' });
   if (blobs.length) await del(blobs.map(b => b.url));
 }
+
+export const getSettings = async () => (await getJson('settings.json')) || {};
+export const saveSettings = d => saveJson('settings.json', d);
