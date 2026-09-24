@@ -41,3 +41,13 @@ footer{text-align:center;padding:80px 6vw 40px}footer small{display:block;margin
 .admin .row{display:flex;gap:10px;align-items:center;justify-content:space-between;background:#fff;padding:10px;margin:8px 0}
 .admin img{width:90px;height:90px;object-fit:cover}
 footer .credit{margin-top:14px;font-size:.8rem;opacity:.75}footer .credit a{color:var(--rose);text-decoration:underline;text-underline-offset:3px}
+.gallery figure{margin:0 0 16px;position:relative;break-inside:avoid;cursor:zoom-in;overflow:hidden}
+.gallery figure img{margin:0}
+.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 14px 12px;color:#fff;background:linear-gradient(transparent,#2a1218d0);font:italic 1.2rem var(--serif),serif;opacity:0;transition:.3s}
+.gallery figure:hover figcaption{opacity:1}
+.lightbox figure{margin:0;text-align:center;color:#fff}.lightbox img{max-height:80vh}
+.lightbox figcaption{padding-top:12px}.lightbox figcaption b{display:block;font:italic 1.5rem var(--serif),serif}.lightbox figcaption span{display:block;opacity:.8;max-width:600px;margin:auto}
+.admin h1{margin-bottom:6px}.admin h2{margin:30px 0 8px;font-size:1.6rem}
+.admin .box{background:#fff;padding:14px;margin:10px 0}.admin .row p{font-size:.9rem;opacity:.8}
+.admin .row .btn{margin:0 0 0 6px;padding:8px 16px}.admin .box .btn{margin:6px 6px 0 0;padding:8px 18px}
+.admin .thumb{width:90px;height:90px;background:#eee}.admin .err{color:#b00020}.admin .ok{color:#2e7d32}
