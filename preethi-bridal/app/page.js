@@ -10,9 +10,8 @@ export default async function Home() {
   const wa = `https://wa.me/${number}?text=${encodeURIComponent('Hi Preethi, I would like to book bridal makeup.')}`;
   const ig = `https://instagram.com/${handle}`;
   return (<>
-    <nav>
-      <div><a href="#about">About</a><a href="#services">Services</a><a href="#works">Portfolio</a><a href="#reviews">Reviews</a><a className="pill" href={wa} target="_blank">Book Now</a></div>
-      <a className="logo" href="#top">{BRAND}</a></nav>
+    <nav><a className="logo" href="#top">{BRAND}</a>
+      <div><a href="#about">About</a><a href="#services">Services</a><a href="#works">Portfolio</a><a href="#reviews">Reviews</a><a className="pill" href={wa} target="_blank">Book Now</a></div></nav>
 
     <header id="top" className="hero" style={img.hero ? { backgroundImage: `linear-gradient(90deg,#2a1218cc,#2a121855),url(${img.hero})` } : undefined}>
       <div className="hero-in"><span className="eyebrow">Bridal Makeup Artist · {site.location}</span>
