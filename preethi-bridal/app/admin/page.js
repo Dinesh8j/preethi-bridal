@@ -14,6 +14,7 @@ export default function Admin() {
   const [works, setWorks] = useState([]); const [revs, setRevs] = useState([]); const [site, setSite] = useState({});
   const [w, setW] = useState({ title: '', description: '', file: null }); const [fk, setFk] = useState(0);
   const [r, setR] = useState({ name: '', text: '' });
+  const [cfg, setCfg] = useState({ whatsapp: '', instagram: '' });
   const [ed, setEd] = useState(null); // item being edited: {type, id, ...fields}
   const H = { 'x-admin-password': pw };
 
@@ -31,7 +32,7 @@ export default function Admin() {
     return fd;
   };
   const load = async () => {
-    try { setWorks(await api('GET', '?type=works')); setRevs(await api('GET', '?type=testimonials')); setSite(await api('GET', '?type=site')); }
+    try { setWorks(await api('GET', '?type=works')); setRevs(await api('GET', '?type=testimonials')); setSite(await api('GET', '?type=site')); setCfg(await api('GET', '?type=settings')); }
     catch (e) { setMsg('Error: ' + e.message); }
   };
   const run = async (label, fn) => {
@@ -47,6 +48,14 @@ export default function Admin() {
 
   return <div className="admin">
     <h1>Admin</h1><p className={msg.startsWith('Error') ? 'err' : 'ok'}>{msg}</p>
+
+    <h2>Contact details</h2>
+    <div className="box">
+      <p>WhatsApp number (country code + number, no + or spaces, e.g. 919876543210)</p>
+      <input value={cfg.whatsapp} onChange={e => setCfg({ ...cfg, whatsapp: e.target.value })} />
+      <p>Instagram username (without @)</p>
+      <input value={cfg.instagram} onChange={e => setCfg({ ...cfg, instagram: e.target.value })} />
+      <button className="btn" onClick={() => run('Saving', async () => api('POST', '', await form({ type: 'settings', ...cfg })))}>Save details</button></div>
 
     <h2>Site photos</h2>
     {['hero', 'about'].map(k => <div className="row" key={k}>
